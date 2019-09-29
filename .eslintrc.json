@@ -45,8 +45,8 @@
         }],
         "space-before-blocks": ["error",
             {
-                "functions": "never",
-                "keywords": "never",
+                "functions": "always",
+                "keywords": "always",
                 "classes": "always" 
             }
         ],

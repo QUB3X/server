@@ -1,9 +1,9 @@
 class ByteCode {
 
-    static GetByteCount(type){
-        if(Array.isArray(type)){
+    static GetByteCount(type) {
+        if(Array.isArray(type)) {
             let count = 0
-            for(let i = 0; i < type.length; i++){
+            for(let i = 0; i < type.length; i++) {
                 count += this.GetByteCount(type[i])
             }
 
@@ -12,7 +12,7 @@ class ByteCode {
 
         // With some potential performance implications, this *could* be done via a regex
         // This way at least we get to handle unknown types though.
-        switch(type){
+        switch(type) {
             case "Int8":
             case "Uint8":
                 return 1

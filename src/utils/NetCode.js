@@ -6,7 +6,7 @@ class NetCode {
      * @param {socket} from
      * @param {socket} to
      */
-    static Send(command, from, to){
+    static Send(command, from, to) {
         from.send(command.Buffer, to.port, to.address)
     }
 }

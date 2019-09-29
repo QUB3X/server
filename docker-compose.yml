@@ -1,0 +1,5 @@
+version: '3'
+services:
+  core:
+    image: andreafranchini/server
+    ports: "50999-51100:50999-51100"

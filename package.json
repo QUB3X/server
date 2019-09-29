@@ -1,10 +1,10 @@
 {
-  "name": "super-cool-server",
-  "version": "0.0.2",
-  "description": "Server for super-cool-game",
-  "main": "index.js",
+  "name": "server",
+  "version": "0.1.0",
+  "description": "An hackable game server backend for NodeJS",
+  "main": "examples/main.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node examples/main.js",
     "test": "jest"
   },
   "repository": {
@@ -31,7 +31,8 @@
         "runner": "jest-runner-eslint",
         "displayName": "lint",
         "testMatch": [
-          "<rootDir>/src/**/*.js"
+          "<rootDir>/src/**/*.js",
+          "<rootDir>/examples/**/*.js"
         ]
       }
     ]

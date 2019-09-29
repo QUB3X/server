@@ -1,10 +1,12 @@
 # Choose image 
-FROM node:11
+FROM node:12-alpine
 
 # Create dir containing the app
 WORKDIR /urs/src/app
 
 COPY package*.json ./
+
+RUN apk add --update nodejs npm
 
 RUN npm install 
 # --only=production

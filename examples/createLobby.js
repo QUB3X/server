@@ -1,0 +1,15 @@
+// const Lobby = require("../src/core/Lobby.js")
+const Lobby = require("./PlatformLobby.js")
+// const Game = require("../src/core/Game.js")
+const Game = require("./PlatformGame.js")
+// const Player = require("../src/core/Player.js")
+const Player = require("./PlatformPlayer.js")
+
+console.log("HELLO")
+
+const port = process.argv[2] // 'node path/to/Lobby.js port' (2 is the index of 'port')
+const lobby = new Lobby(Game, Player)
+lobby.server.on("error", err => lobby.error(err))
+lobby.server.on("message", (data, client) => lobby.message(data, client))
+lobby.server.on("listening", () => lobby.listening())
+lobby.server.bind(port)
