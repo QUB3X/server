@@ -23,12 +23,13 @@ class Server {
      * You should pass as parameter the path of the `createLobby.js` script
      * @param {string} createLobbyScriptPath The path of the `createLobby.js` script.
      */
-    start(createLobbyScriptPath) {
+    start(createLobbyScriptPath, callback) {
         const server = net.createServer(socket => {
-            console.log("New client connected")
             socket.on("error", err => console.log(err))
             socket.on("data", data => {
+
                 let cmd = Command.From(data.buffer)
+                console.log(`[Server] Received command ${cmd.GetOpCode()}`)
                 switch(cmd.GetOpCode()) {
                     case OpCode.Queue: {
                         // TODO: actual matchmaking
@@ -76,8 +77,11 @@ class Server {
                 }
             })
         }).listen(this.matchmakerPort, () => console.log(
-            `master server listening on port ${server.address().port}`
+            `[Server] Listening on port ${server.address().port}`
         ))
+
+        // Optional callback
+        if(typeof callback !== "undefined") callback
     }
 }
 
