@@ -1,9 +1,10 @@
-import dgram, { Socket } from 'dgram'
+import { Socket, createSocket } from "dgram"
+import Player from "@Lobby/Player"
 
-class Lobby {
-    private server: dgram.Socket
-    constructor(port: number) {
-        this.server = dgram.createSocket("udp4")
+export default class Lobby {
+    private server: Socket
+    constructor(port: number, players: Player[]) {
+        this.server = createSocket("udp4")
         this.server.bind(port)
     }
 
@@ -15,5 +16,3 @@ class Lobby {
     }
 
 }
-
-export = Lobby

@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-const dgram_1 = __importDefault(require("dgram"));
+Object.defineProperty(exports, "__esModule", { value: true });
+const dgram_1 = require("dgram");
 class Lobby {
-    constructor(port) {
-        this.server = dgram_1.default.createSocket("udp4");
+    constructor(port, players) {
+        this.server = dgram_1.createSocket("udp4");
         this.server.bind(port);
     }
     start() {
@@ -15,5 +13,5 @@ class Lobby {
         });
     }
 }
-module.exports = Lobby;
+exports.default = Lobby;
 //# sourceMappingURL=Lobby.js.map
